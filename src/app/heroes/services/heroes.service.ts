@@ -7,9 +7,15 @@ import { Hero } from '../interfaces/heroes.interface';
   providedIn: 'root',
 })
 export class HeroesService {
+  private urlApi: string = 'http://localhost:3000';
+
   constructor(private http: HttpClient) {}
 
   getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>('http://localhost:3000/heroes');
+    return this.http.get<Hero[]>(`${this.urlApi}/heroes`);
+  }
+
+  getHeroById(id: string): Observable<Hero> {
+    return this.http.get<Hero>(`${this.urlApi}/heroes/${id}`);
   }
 }
