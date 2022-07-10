@@ -19,4 +19,8 @@ export class HeroesService {
   getHeroById(id: string): Observable<Hero> {
     return this.http.get<Hero>(`${this.urlApi}/heroes/${id}`);
   }
+
+  getSuggestion(query: string): Observable<Hero[]> {
+    return this.http.get<Hero[]>(`${this.urlApi}/heroes?q=${query}&_limit=6`);
+  }
 }
