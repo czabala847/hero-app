@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Hero } from '../interfaces/heroes.interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HeroesService {
-  private urlApi: string = 'http://localhost:3000';
+  private urlApi: string = environment.urlApi;
 
   constructor(private http: HttpClient) {}
 
