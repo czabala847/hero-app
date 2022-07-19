@@ -71,9 +71,23 @@
     </mat-form-field>
 
     <div fxLayout.xs="column">
-      <button mat-raised-button color="primary" (click)="saveHero()">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="saveHero()"
+        [style.marginRight.px]="5"
+      >
         <mat-icon>save</mat-icon>
         Guardar
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        *ngIf="hero.id"
+        (click)="deleteHero()"
+      >
+        <mat-icon>remove</mat-icon>
+        Eliminar
       </button>
     </div>
   </div>

@@ -31,4 +31,8 @@ export class HeroesService {
   update(hero: Hero): Observable<Hero> {
     return this.http.put<Hero>(`${this.urlApi}/heroes/${hero.id}`, hero);
   }
+
+  delete(id: string): Observable<any> {
+    return this.http.delete<any>(`${this.urlApi}/heroes/${id}`);
+  }
 }

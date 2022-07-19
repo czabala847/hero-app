@@ -38,9 +38,11 @@ export class AddComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params
-      .pipe(switchMap(({ id }) => this.heroesService.getHeroById(id)))
-      .subscribe((hero) => (this.hero = hero));
+    if (this.router.url.includes('edit')) {
+      this.activatedRoute.params
+        .pipe(switchMap(({ id }) => this.heroesService.getHeroById(id)))
+        .subscribe((hero) => (this.hero = hero));
+    }
   }
 
   saveHero() {
@@ -57,5 +59,11 @@ export class AddComponent implements OnInit {
         });
       }
     }
+  }
+
+  deleteHero() {
+    this.heroesService.delete(this.hero.id!).subscribe((response) => {
+      this.router.navigate(['/heroes']);
+    });
   }
 }
