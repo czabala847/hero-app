@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
 import { ImageHeroPipe } from './pipes/image-hero.pipe';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ImageHeroPipe } from './pipes/image-hero.pipe';
     ListComponent,
     HeroCardComponent,
     ImageHeroPipe,
+    ConfirmDialogComponent,
   ],
   imports: [
     CommonModule,
