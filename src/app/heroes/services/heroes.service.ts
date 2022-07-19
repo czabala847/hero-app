@@ -27,4 +27,8 @@ export class HeroesService {
   save(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(`${this.urlApi}/heroes`, hero);
   }
+
+  update(hero: Hero): Observable<Hero> {
+    return this.http.put<Hero>(`${this.urlApi}/heroes/${hero.id}`, hero);
+  }
 }
